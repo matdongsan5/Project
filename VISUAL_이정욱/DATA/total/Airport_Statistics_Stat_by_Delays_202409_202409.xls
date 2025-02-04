@@ -1,0 +1,62 @@
+
+
+
+
+
+
+
+
+ 
+<head>
+	<meta http-equiv='Content-Type' content='application/vnd.ms-excel; charset=utf-8'/>
+</head>
+ <body>
+<table border="1">
+	
+	<colgroup>
+		<col style="width:7%">
+		<col style="width:7%">
+		<col style="width:7%">
+		<col style="width:14%">
+		<col style="width:8%">
+		<col style="width:14%">
+		<col style="width:12%">
+		<col style="width:14%">
+		<col style="width:7%">
+		<col style="width:10%">
+	</colgroup>
+	<thead>
+		<tr>
+            <th scope="col">기상</th>
+			<th scope="col">연결</th>
+			<th scope="col">정비</th>
+			<th scope="col">여객 및 화물 처리</th>
+			<th scope="col">지상조업</th>
+			<th scope="col">운항기준/승무원</th>
+			<th scope="col">항공교통흐름</th>
+			<th scope="col">공항/출입국절차</th>
+			<th scope="col">기타</th>
+			<th scope="col">총 지연편수</th>
+        </tr>
+	</thead>
+	<tbody>
+		
+			
+			<tr>
+				<td>179</td>
+				<td>4,336</td>																
+				<td>270</td>
+				<td>262</td>
+				<td>86</td>
+				<td>95</td>
+				<td>2,017</td>
+				<td>2,509</td>
+				<td>484</td>
+				<td>10,238</td>
+			</tr>
+		
+		
+		
+	</tbody>
+</table>
+</body>
