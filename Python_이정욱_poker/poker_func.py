@@ -23,10 +23,6 @@ class player:
 
     
 
-def generate_cards():
-    suits = ["D", "C", "H", "S"]  
-    ranks = ["Ace"] + [f"{i:02}" for i in range(2, 11)] + ["Jack", "Queen", "King"]
-    player.Deck = [f"{suit}.{rank}" for suit in suits for rank in ranks]
     
 def game_start():        
     print('카드를 뽑습니다.', end =' ')
@@ -157,123 +153,10 @@ def end():
     print('최종점수 {0}점 입니다'.format(player.end_score))
     pass
 
-def color_card_dict(dict):
-    values1 = list(dict.values())
-    keys1 = list(dict.keys())
-    color_card(values1,keys1)
-    
-def color_card(*args):
-    for i in range(len(args[0])):
-        if len(args) == 2:
-         print(f"\033[37;40m {args[1][i]}:\033[0m" ,end ='')
-        if 'D' in args[0][i]:
-            print(f"\033[37;45m {args[0][i][:2]}\033[0m",end ='')
-        elif 'H' in args[0][i]:
-            print(f"\033[37;41m {args[0][i][:2]}\033[0m",end ='')
-        elif 'C' in args[0][i]:
-            print(f"\033[37;44m {args[0][i][:2]}\033[0m",end ='')
-        elif 'S' in args[0][i]:
-            print(f"\033[97;40m {args[0][i][:2]}\033[0m",end ='')
-        print(f"\033[30;47m {args[0][i][2:]} \033[0m", end =' ')
-        if i == 4:
-            print()
-        if i == len(args[0]):
-            print(',', end =' ')   
-    print()        
+
 # ♣️ ♠️ ♦️ ♥️
 # 카드 선택.
-def card_choose():
-    
-    print('-'*20)
-    # print(player.user_hand,'이거')
-    color_card_dict(player.user_hand)
-    print('-'*20)
-    sorted_type = input('정렬 타입(0:종류, 1:숫자, 2:넘어가기)):').strip()
-    if sorted_type == 'quit':
-        quit()
-    if not sorted_type or sorted_type not in '012' or len(sorted_type) != 1:
-        print('잘못된 입력입니다.')
-        return card_choose()
-    elif sorted_type == '0':
-        player.user_hand=sorted_by_suit(player.user_hand)
-        return card_choose()
-    elif sorted_type == '1':
-        player.user_hand=sorted_by_ranks(player.user_hand)
-        return card_choose()
-    else:
-        choose_cardNum = list(input('카드인덱스(최대5):').strip())
-        print('-'*20)
-        if choose_cardNum == 'quit':
-          quit()
-        if not choose_cardNum or len(set(choose_cardNum)) != len(choose_cardNum):
-                print('잘못된 입력입니다.')
-                return card_choose()
-        for i in choose_cardNum:
-            player.chosen_cards.append(player.user_hand[int(i)])
-        exit_sign = 1
-        while exit_sign:
-            color_card(player.chosen_cards)
-            # print(player.chosen_cards, '저거')
-            print('플레이 회수 [{0}] / 버리기 회수 [{1}]'.format(player.count_play, player.count_discard))
-            selectPD = input("0: 플레이 / 1: 버리기 /2: 취소 ").strip()
-            print('-'*20)
-            if selectPD == 'quit':
-                quit()
-            if not selectPD or selectPD not in '012':
-                print('잘못된 입력입니다.')
-            elif selectPD == '2':       #취소
-                player.chosen_cards.clear()
-                print('취소하셨습니다.')
-                return card_choose()
-            
-            elif selectPD == '1':       #버리기
-                if player.count_discard == 0:
-                    print('더 이상 버릴 수 없습니다.')
-                    return card_choose()
-                else:
-                    exit_sign = 0
-                    player.count_discard -= 1
-                    print(f"선택된 카드를 버립니다.")
-                    color_card(player.chosen_cards)
-                    for i in choose_cardNum:
-                        del player.user_hand[int(i)]
-                    player.chosen_cards.clear()
-                    replenish_card()
-                    return card_choose()
-            
-            elif selectPD == '0':       #플레이
-                
-                    exit_sign = 0
-                    player.count_play -= 1
-                    
-                    pht_pcc = check_hand_type(player.chosen_cards)
-                    # print(pht_pcc, '점')
-                    show_play = []
-                    for i in pht_pcc[0]:
-                        if i[1] == '01':
-                            show_play.append(f"{i[0]}.{'Ace'}")
-                        elif i[1] == '11':
-                            show_play.append(f"{i[0]}.{'Jack'}")
-                        elif i[1] == '12':
-                            show_play.append(f"{i[0]}.{'Queen'}")
-                        elif i[1] == '13':
-                            show_play.append(f"{i[0]}.{'King'}")
-                        else:
-                            show_play.append(f"{i[0]}.{i[1]}")
-                    color_card(show_play)
-                    print('-'*20)
-                    print("{0}, {1}점입니다.".format(pht_pcc[1],pht_pcc[2]))
-                    print("총점 {} 입니다.".format(player.end_score))
-                    print('-'*20)
-                    for i in choose_cardNum:
-                        del player.user_hand[int(i)]
-                    player.chosen_cards.clear()
-                    
-                    if player.count_play == 0:
-                        break
-                
-                    replenish_card()
-                    return card_choose()
+
 
 
 exlist = ['H.Jack', 'C.07', 'H.10', 'S.King', 'H.07']
