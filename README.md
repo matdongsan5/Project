@@ -1,9 +1,9 @@
 ### KDT 전반기 과정 프로젝트
 
 ## Python_이정욱_poker [link](https://github.com/matdongsan5/Project/tree/main/Python_%EC%9D%B4%EC%A0%95%EC%9A%B1_poker)
-25/01/10 ~ 25/01/13
-Use tool : vsc, python
-파이썬을 이용한 싱글 포커 게임
+25/01/10 ~ 25/01/13<br>
+Use tool : vsc, python<br>
+파이썬을 이용한 싱글 포커 게임<br>
 
 ## Pandas_이정욱 [link](https://github.com/matdongsan5/Project/tree/main/Pandas_%EC%9D%B4%EC%A0%95%EC%9A%B1)
 25/01/21 ~ 25/01/22
