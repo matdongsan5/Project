@@ -1,4 +1,4 @@
-### KDT 전반기 과정 프로젝트
+# KDT 전반기 과정 프로젝트
 
 ## Python_이정욱_poker [link](https://github.com/matdongsan5/Project/tree/main/Python_%EC%9D%B4%EC%A0%95%EC%9A%B1_poker)
 25/01/10 ~ 25/01/13<br>
